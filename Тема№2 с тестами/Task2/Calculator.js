@@ -2,7 +2,7 @@ function Calculator(x) {
     if (!new.target) {
         throw new Error("Калькулятор вызван без ключевого слова 'new'!");
     }
-    
+
     this.stack = [{ operator: null, operand: x }];
 
     this.plus = function (num) {
