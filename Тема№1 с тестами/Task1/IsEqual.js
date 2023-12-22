@@ -23,19 +23,19 @@ function MyIsEqual(value, other) {
             return false;
         }
 
-        if(value instanceof Map && other instanceof Map){
+        if (value instanceof Map && other instanceof Map) {
             return compareMaps(value, other)
         }
 
-        if(value instanceof Set && other instanceof Set){
+        if (value instanceof Set && other instanceof Set) {
             return compareSet(value, other)
         }
 
-        if(value instanceof RegExp && other instanceof RegExp){
+        if (value instanceof RegExp && other instanceof RegExp) {
             return value.source === other.source && value.flags === other.flags;
         }
 
-        if(value.constructor !== other.constructor){
+        if (value.constructor !== other.constructor) {
             return false;
         }
 
@@ -81,8 +81,8 @@ function compareMaps(map1, map2) {
     return true;
 }
 
-function compareSet(set1, set2){    
-    if(set1.size !== set2.size){
+function compareSet(set1, set2) {
+    if (set1.size !== set2.size) {
         return false;
     }
 
@@ -90,8 +90,4 @@ function compareSet(set1, set2){
     let arrForSet2 = Array.from(set2);
 
     return MyIsEqual(arrForSet1, arrForSet2);
-
-    /*const failedElements = set1.filter(obj1 => {
-  return !set2.some(obj2 => checkFunction(obj1, obj2));
-});*/
 }
