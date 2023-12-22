@@ -1,5 +1,5 @@
 function MyPromiseAll(promiseArr) {
-    let result = Array(promiseArr.lenght);
+    let result = Array(promiseArr.length);
     let counter = 0;
 
     return new Promise((resolve, reject) => {
