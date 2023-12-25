@@ -1,15 +1,15 @@
-function MyPromiseAll(promiseArr) {
-    let result = Array(promiseArr.length);
+function MyPromiseAll(...promises) {
+    let result = Array(promises.length);
     let counter = 0;
 
     return new Promise((resolve, reject) => {
-        promiseArr.forEach((promise, index) => {
+        promises.forEach((promise, index) => {
             Promise.resolve(promise)
                 .then((item) => {
                     counter += 1;
                     result[index] = item;
 
-                    if (counter === promiseArr.length) {
+                    if (counter === promises.length) {
                         resolve(result);
                         console.log(result);
                     }
