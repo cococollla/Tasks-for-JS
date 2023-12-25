@@ -5,19 +5,13 @@
     <meta charset="utf-8">
     <script src="MyPromiseAll.js"></script>
     <script src="MyPromiseRace.js"></script>
+    <script src="Delay.js"></script>
 </head>
 
 <body>
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
-            function delay(ms) {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => resolve("Hello"), ms)
-                });
-            }
-            const promise1 = delay;
-            promise1(15000).then(value => console.log(value));
-
+            MyDelay(20000);
             const p1 = new Promise((resolve, reject) => { setTimeout(resolve, 10000, 'foo') });
             const p2 = new Promise((resolve, reject) => { setTimeout(resolve, 200, 'bar') });
             const p3 = new Promise((resolve, reject) => { setTimeout(resolve, 50, 'baz') });
