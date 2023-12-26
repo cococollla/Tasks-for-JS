@@ -1,6 +1,10 @@
 function MyPromiseRace(...promises) {
 
     return new Promise((resolve, reject) => {
-        promises.forEach(p => p.then(resolve).catch(reject));
+        promises.forEach((promise) => {
+            Promise.resolve(promise)
+            .then(resolve)
+            .catch(reject);
+        });
     });
 }
